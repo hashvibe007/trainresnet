@@ -1,0 +1,30 @@
+model:
+  name: "resnet50"
+  num_classes: 1000
+  pretrained: false
+
+data:
+  batch_size: 32
+  num_workers: 4
+  train_val_split: 0.9
+  image_size: 224
+
+training:
+  epochs: 90
+  learning_rate: 0.1
+  momentum: 0.9
+  weight_decay: 0.0001
+  gradient_accumulation_steps: 8
+  lr_scheduler:
+    step_size: 30
+    gamma: 0.1
+
+checkpoint:
+  save_dir: "checkpoints"
+  save_freq: 1
+  resume: false
+  resume_path: ""
+
+logging:
+  log_dir: "runs"
+  tensorboard: true 
